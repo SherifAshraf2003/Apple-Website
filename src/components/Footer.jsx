@@ -8,16 +8,16 @@ const Footer = () => {
         <div>
           <p className='font-semibold text-gray text-xs'>
             More ways to shop: {' '} 
-            <span className='underline text-blue'>
+            <span className='underline text-blue cursor-pointer'>
              Find an Apple Store 
             </span> {' '}
             or {' '}
-            <span className='underline text-blue'>
+            <span className='underline text-blue cursor-pointer'>
              other retailer
             </span>{' '}
             near you.
           </p> 
-          <p className='font-semibold text-gray text-xs'>
+          <p className='font-semibold text-gray text-xs mt-1'>
             Or call +201208466652
           </p>
         </div>
@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
           <div className='flex'>
             {footerLinks.map((link, i) => (
-              <p key={link} className='font-semibold text-gray text-xs' >
+              <p key={link} className='cursor-pointer font-semibold text-gray text-xs' >
                 {link}
                 {i !== footerLinks.length - 1 && <span className='mx-2'> | </span>}
               </p>
