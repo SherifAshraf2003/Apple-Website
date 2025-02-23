@@ -28,9 +28,9 @@ const VideoCarousel = () => {
     gsap.to("#slider", {
       transform: `translateX(${-100 * videoId}%)`,
       duration: 2,
-      ease: "power2.inOut", 
+      ease: "power2.inOut",
     });
-    
+
     gsap.to("#video", {
       scrollTrigger: {
         trigger: "#video",
@@ -66,8 +66,8 @@ const VideoCarousel = () => {
                 window.innerWidth < 760
                   ? "10vw" // mobile
                   : window.innerWidth < 1200
-                  ? "10vw" // tablet
-                  : "4vw", // laptop
+                    ? "10vw" // tablet
+                    : "4vw", // laptop
             });
 
             // set the background color of the progress bar
@@ -211,17 +211,19 @@ const VideoCarousel = () => {
           ))}
         </div>
 
-        <button className="control-btn">
+        <button
+          onClick={
+            isLastVideo
+              ? () => handleProcess("video-reset")
+              : !isPlaying
+                ? () => handleProcess("play")
+                : () => handleProcess("pause")
+          }
+          className="control-btn"
+        >
           <img
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
             alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
-            onClick={
-              isLastVideo
-                ? () => handleProcess("video-reset")
-                : !isPlaying
-                ? () => handleProcess("play")
-                : () => handleProcess("pause")
-            }
           />
         </button>
       </div>
